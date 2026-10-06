@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Brand HQ — Hệ thống quản lý KOC</title>
+
+    <!-- Giữ lại các thư viện đang dùng ở trang Brief hiện tại. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/messages.css">
+    <link rel="stylesheet" href="assets/pipeline.css">
+    <link rel="stylesheet" href="assets/pricing.css">
+    <link rel="stylesheet" href="assets/measurement.css">
+</head>
+<body>
+    <!-- APP SHELL: chỉ tồn tại 1 lần trong toàn bộ SPA -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="logo-icon"><i class="fa-solid fa-glasses"></i></div>
+            <div class="logo-text">
+                <h1>Multi-Brand HQ</h1>
+                <span>Hệ thống quản lý KOC</span>
+            </div>
+        </div>
+
+        <div class="brand-selector-area">
+            <label class="brand-label">
+                <i class="fa-solid fa-tags"></i> Chọn Thương Hiệu
+            </label>
+            <div style="display:flex;gap:8px">
+                <select id="brand-switcher" class="brand-select" aria-label="Chọn thương hiệu"></select>
+                <button id="btn-delete-brand" class="btn-outline"
+                        style="padding:10px;color:#e53e3e;border-color:transparent;display:none"
+                        type="button" title="Xóa thương hiệu này">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-title">MỤC LỤC</div>
+        <nav class="menu" aria-label="Điều hướng chính">
+            <a href="#/dashboard" class="menu-item" data-route="dashboard">
+                <i class="fa-solid fa-file-alt"></i> Quy trình 8 bước
+            </a>
+            <a href="#/brief" class="menu-item" data-route="brief">
+                <i class="fa-solid fa-bullseye"></i> Brief &amp; Sản phẩm
+            </a>
+            <a href="#/pricing" class="menu-item" data-route="pricing">
+                <i class="fa-solid fa-calculator"></i> Tính giá &amp; Lợi nhuận
+            </a>
+            <a href="#/pipeline" class="menu-item" data-route="pipeline">
+                <i class="fa-solid fa-magnifying-glass"></i> Pipeline KOC
+            </a>
+            <a href="#/scoring" class="menu-item" data-route="scoring">
+                <i class="fa-solid fa-ruler-combined"></i> Chấm điểm KOC
+            </a>
+            <a href="#/measurement" class="menu-item" data-route="measurement">
+                <i class="fa-solid fa-chart-column"></i> Đo lường &amp; ROI
+            </a>
+            <a href="#/calendar" class="menu-item" data-route="calendar">
+                <i class="fa-regular fa-calendar"></i> Lịch lên bài
+            </a>
+            <a href="#/messages" class="menu-item" data-route="messages">
+                <i class="fa-regular fa-comment-dots"></i> Tin nhắn &amp; CSKH
+            </a>
+            <a href="#/contracts" class="menu-item" data-route="contracts">
+                <i class="fa-solid fa-file-contract"></i> Hợp đồng &amp; Thanh toán
+            </a>
+            <a href="#/commissions" class="menu-item" data-route="commissions">
+                <i class="fa-solid fa-sack-dollar"></i> Hoa hồng quyết toán
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="top-header">
+            <div class="top-header-left">
+                <div class="icon" id="brand-avatar-icon">MB</div>
+                <h1 id="header-title">Quản lý Booking KOC</h1>
+            </div>
+            <div class="top-header-right">
+                <button id="btn-export" class="btn-header" type="button">
+                    <i class="fa-solid fa-file-excel"></i> Xuất Excel
+                </button>
+                <button id="btn-print" class="btn-header" type="button">
+                    <i class="fa-solid fa-print"></i> In / PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- Router chỉ thay thế HTML trong vùng này -->
+        <div id="app-content" aria-live="polite"></div>
+    </main>
+
+    <div class="sync-badge" id="sync-badge">
+        <i class="fa-solid fa-cloud-arrow-up"></i> Đã đồng bộ dữ liệu hệ thống
+    </div>
+
+    <!-- app.js được nạp trước để các View có thể dùng KOCApp / GlobalState ngay khi khai báo. -->
+    <script src="js/app.js"></script>
+
+    <!-- Mỗi View tự đăng ký template + controller. Router chỉ chạy sau DOMContentLoaded. -->
+    <script src="js/views/dashboard.js"></script>
+    <script src="js/views/brief.js"></script>
+    <script src="js/views/calendar.js"></script>
+    <script src="js/views/commissions.js"></script>
+    <script src="js/views/contracts.js"></script>
+    <script src="js/views/measurement.js"></script>
+    <script src="js/views/messages.js"></script>
+    <script src="js/views/pipeline.js"></script>
+    <script src="js/views/pricing.js"></script>
+    <script src="js/views/scoring.js"></script>
+</body>
+</html>

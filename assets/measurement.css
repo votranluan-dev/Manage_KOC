@@ -1,0 +1,371 @@
+/* Measurement / ROI view — CSS scoped to prevent clashes with other SPA views. */
+.measurement-view {
+    padding: 25px 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.measurement-view .dashboard-tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.measurement-view .dash-tab {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #718096;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: .2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.measurement-view .dash-tab:hover {
+    background: #edf2f7;
+    color: #4a5568;
+}
+
+.measurement-view .dash-tab.active {
+    background: var(--primary-red);
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(211, 47, 47, .2);
+}
+
+.measurement-view #dashboard-container[data-tab="booking"] .show-tmdt {
+    display: none !important;
+}
+
+.measurement-view #dashboard-container[data-tab="tmdt"] .show-booking {
+    display: none !important;
+}
+
+.measurement-view .settings-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .02);
+    color: #4a5568;
+    font-size: 14px;
+    font-weight: 500;
+    flex-wrap: wrap;
+}
+
+.measurement-view .settings-area .show-tmdt {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.measurement-view .settings-area input {
+    width: 60px;
+    padding: 6px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-weight: 700;
+    color: #2d3748;
+    outline: none;
+    transition: .2s;
+}
+
+.measurement-view .settings-area input:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 2px rgba(211, 47, 47, .1);
+}
+
+.measurement-view .settings-note {
+    margin-left: 20px;
+    color: #a0aec0;
+    font-size: 13px;
+}
+
+.measurement-view .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.measurement-view .summary-card {
+    padding: 20px 15px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-top-width: 4px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .02);
+}
+
+.measurement-view .sc-gmv { border-top-color: #3182ce; }
+.measurement-view .sc-cost,
+.measurement-view .sc-keep { border-top-color: #e53e3e; }
+.measurement-view .sc-roi { border-top-color: #38a169; }
+.measurement-view .sc-drop { border-top-color: #a0aec0; }
+
+.measurement-view .summary-card h2 {
+    margin: 0 0 5px;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.measurement-view .sc-gmv h2 { color: #3182ce; }
+.measurement-view .sc-cost h2,
+.measurement-view .sc-keep h2 { color: #e53e3e; }
+.measurement-view .sc-roi h2 { color: #38a169; }
+.measurement-view .sc-drop h2 { color: #4a5568; }
+
+.measurement-view .summary-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.measurement-view .table-card {
+    max-height: calc(100vh - 420px);
+    overflow: auto;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .02);
+}
+
+.measurement-view table {
+    width: 100%;
+    min-width: 1400px;
+    border-collapse: collapse;
+}
+
+.measurement-view thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.measurement-view th {
+    padding: 15px 10px;
+    text-align: center;
+    white-space: nowrap;
+    background: #ebf4ff;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 2px solid #cbd5e0;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .1);
+    color: #2b6cb0;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.measurement-view td {
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+    background: #fff;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.measurement-view th:last-child,
+.measurement-view td:last-child {
+    border-right: none;
+}
+
+.measurement-view th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color .2s;
+}
+
+.measurement-view th.sortable:hover { background: #d3e2f7; }
+
+.measurement-view th.sortable::after {
+    content: "\f0dc";
+    margin-left: 6px;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    opacity: .3;
+}
+
+.measurement-view th.sortable.asc::after {
+    content: "\f0de";
+    color: var(--primary-red);
+    opacity: 1;
+}
+
+.measurement-view th.sortable.desc::after {
+    content: "\f0dd";
+    color: var(--primary-red);
+    opacity: 1;
+}
+
+.measurement-view .t-input {
+    width: 100%;
+    padding: 6px;
+    color: #2d3748;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    transition: .2s;
+}
+
+.measurement-view .t-input:hover,
+.measurement-view .t-input:focus {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+}
+
+.measurement-view .t-text {
+    color: #2d3748;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.measurement-view .t-text-bold { font-weight: 700; }
+.measurement-view .align-left { text-align: left; }
+
+.measurement-view .stage-badge {
+    padding: 4px 10px;
+    color: #4a5568;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    background: #edf2f7;
+    border-radius: 20px;
+}
+
+.measurement-view .tier-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    border-radius: 20px;
+}
+
+.measurement-view .tier-a { background: #f6ad55; }
+.measurement-view .tier-b { background: #4299e1; }
+.measurement-view .tier-avg {
+    color: #4a5568;
+    background: #e2e8f0;
+}
+.measurement-view .tier-drop { background: #fc8181; }
+
+.measurement-view .recom-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.measurement-view .recom-keep { color: #38a169; }
+.measurement-view .recom-warn { color: #d69e2e; }
+.measurement-view .recom-drop { color: #e53e3e; }
+
+.measurement-view .footer-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 12px 20px;
+    color: #c53030;
+    font-size: 13px;
+    font-weight: 500;
+    background: #fff5f5;
+    border: 1px solid #feb2b2;
+    border-radius: 8px;
+}
+
+@media (max-width: 1100px) {
+    .measurement-view .summary-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .measurement-view {
+        padding: 20px 15px;
+    }
+
+    .measurement-view .dashboard-tabs {
+        gap: 8px;
+        overflow-x: auto;
+    }
+
+    .measurement-view .dash-tab {
+        flex: 0 0 auto;
+        padding: 9px 12px;
+    }
+
+    .measurement-view .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .measurement-view .settings-note {
+        margin-left: 0;
+    }
+}
+
+@media print {
+    .measurement-view {
+        display: block;
+        max-width: none;
+        padding: 0;
+    }
+
+    .measurement-view .dashboard-tabs,
+    .measurement-view .settings-area,
+    .measurement-view .summary-grid,
+    .measurement-view .footer-note {
+        display: none !important;
+    }
+
+    .measurement-view .table-card {
+        max-height: none;
+        overflow: visible;
+        border: none;
+        box-shadow: none;
+    }
+
+    .measurement-view .t-input {
+        padding: 0;
+        color: #000;
+        background: transparent !important;
+        border: none !important;
+    }
+
+    .measurement-view .tier-badge,
+    .measurement-view .stage-badge {
+        padding: 2px 6px;
+        color: #000 !important;
+        background: transparent !important;
+        border: 1px solid #ccc;
+    }
+
+    .measurement-view .recom-text { color: #000 !important; }
+}

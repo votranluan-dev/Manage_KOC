@@ -1,0 +1,74 @@
+<div class="content-wrapper">
+<div class="card" style="padding-bottom:30px">
+<div class="section-title"><i class="fa-solid fa-bullseye" style="color:var(--primary-red)"></i> Brief Booking — Thông tin chung</div>
+<div class="section-subtitle" id="brief-subtitle">Mẫu brief gửi KOC. Sửa trực tiếp, hệ thống tự động lưu trữ độc lập theo brand.</div>
+<div class="info-grid">
+<div class="info-box">
+<label><i class="fa-solid fa-store"></i> Thông tin shop &amp; hashtag</label>
+<textarea id="brief_shop_info" placeholder="Nhập tên shop, tài khoản và hashtag yêu cầu..."></textarea>
+</div>
+<div class="info-box">
+<label><i class="fa-solid fa-crosshairs"></i> Định vị &amp; thông điệp chính</label>
+<textarea id="brief_core_msg" placeholder="Nhập định vị thương hiệu và thông điệp truyền thông cốt lõi..."></textarea>
+</div>
+<div class="info-box">
+<label><i class="fa-solid fa-users"></i> Đối tượng khách hàng mục tiêu</label>
+<textarea id="brief_target_audience" placeholder="Mô tả tệp khách hàng, hành vi và nỗi đau tiêu dùng chung..."></textarea>
+</div>
+<div class="info-box">
+<label><i class="fa-solid fa-filter"></i> Tiêu chí booking (tệp fan, view, nội dung)</label>
+<textarea id="brief_booking_criteria" placeholder="Các điều kiện về kênh KOC (Hạng mục, độ tuổi fan, chỉ số tương tác)..."></textarea>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="section-title"><i class="fa-solid fa-shield-halved" style="color:#38a169"></i> Quy định &amp; Cam kết chiến dịch</div>
+<div class="section-subtitle">Các điều khoản bắt buộc, tiến độ timeline và thỏa thuận bản quyền hình ảnh với KOC.</div>
+<div class="info-grid">
+<div class="info-box">
+<label><i class="fa-solid fa-list-check"></i> Do's &amp; Don'ts (Bắt buộc &amp; Cấm kỵ)</label>
+<textarea id="brief_dos_donts" placeholder="- Bắt buộc: Ghim comment giỏ hàng, cầm sản phẩm trong 3s đầu...
+- Cấm kỵ: Nhắc đến thương hiệu đối thủ, dùng từ vi phạm chính sách (nhất, trị dứt điểm)..."></textarea>
+</div>
+<div class="info-box">
+<label><i class="fa-regular fa-clock"></i> Timeline &amp; Deadline</label>
+<textarea id="brief_timeline" placeholder="- Ngày KOC nhận được hàng: ...
+- Ngày KOC cần gửi video Draft để duyệt: ...
+- Ngày Publish lên kênh KOC: ..."></textarea>
+</div>
+<div class="info-box" style="grid-column:span 2">
+<label><i class="fa-solid fa-copyright"></i> Quyền Tài Nguyên &amp; Chạy Ads</label>
+<textarea id="brief_rights" placeholder="- Thời hạn cấp mã Spark Ads (Authorization Code): 30 ngày / 60 ngày / 90 ngày.
+- Thỏa thuận bản quyền: Nhãn hàng được phép re-up, cắt ghép video để đăng tải trên hệ thống Owned Media (Fanpage, Website, Instagram) của thương hiệu."></textarea>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="section-title"><i class="fa-solid fa-box-open" style="color:#d2691e"></i> Sản phẩm hợp tác chiến dịch</div>
+<div class="section-subtitle">Danh mục hàng hóa bàn giao cho KOC review — đi kèm giá bán, USP, nỗi đau khách hàng và định hướng kịch bản.</div>
+<div class="toolbar">
+<button class="btn-add" id="btn-add-row"><i class="fa-solid fa-plus"></i> Thêm sản phẩm</button>
+<button class="btn-outline" id="btn-reset-table">-- Đặt lại mặc định Brand này</button>
+<span class="hint-text">Dữ liệu tự động lưu khi chỉnh sửa ô nhập liệu.</span>
+</div>
+<div class="table-container">
+<table id="product-table">
+<thead>
+<tr>
+<th class="col-name">TÊN SẢN PHẨM</th>
+<th class="col-id">ID SP</th>
+<th class="col-price">NIÊM YẾT</th>
+<th class="col-price">GIÁ DAILY</th>
+<th class="col-usp">USP / ĐẶC ĐIỂM NỔI BẬT</th>
+<th class="col-pain">NỖI ĐAU KHÁCH</th>
+<th class="col-cms">CMS %</th>
+<th class="col-content">ĐỊNH HƯỚNG CONTENT</th>
+<th class="col-ref">LINK ẢNH / REF</th>
+<th><i class="fa-solid fa-gear"></i></th>
+</tr>
+</thead>
+<tbody id="table-body"></tbody>
+</table>
+</div>
+</div>
+</div>
